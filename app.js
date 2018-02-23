@@ -23,8 +23,9 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', require('./routes/index'));
-app.use('/users', require('./routes/users'));
+app.use('/ping', require('./routes/ping'));
+app.use('/api', require('./routes/api'));
+app.use('/*', require('./routes/index'));
 
 app.use((req, res, next) => {
 
@@ -34,7 +35,7 @@ app.use((req, res, next) => {
 
 });
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
 
 	res.locals.message = err.message;
 	res.locals.error = req.app.get('env') === 'development' ? err : {};

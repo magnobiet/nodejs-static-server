@@ -3,9 +3,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res, next) => {
+router.all('/', (req, res) => {
 
-	res.send('respond with a resource');
+	res.status(200);
+	res.send(`pong from ${ req.method }`);
 
 });
 
