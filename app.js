@@ -2,8 +2,9 @@
 
 require('dotenv').config();
 
-const express = require('express');
+const fs = require('fs');
 const path = require('path');
+const express = require('express');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
@@ -15,7 +16,12 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+const faviconPath = path.join(__dirname, 'public', 'favicon.ico');
+
+if (fs.existsSync(faviconPath)) {
+	app.use(favicon(faviconPath));
+}
+
 app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
