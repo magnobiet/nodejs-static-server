@@ -1,0 +1,7 @@
+{
+  "name": "Node.js Static Server",
+  "description": "A Node.js app using Express",
+  "repository": "https://github.com/magnobiet/static-server",
+  "keywords": ["node", "express", "heroku", "static", "server"],
+  "image": "heroku/nodejs"
+}
