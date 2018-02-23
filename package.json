@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "DEBUG=static-server:* npm start"
+    "dev": "./node_modules/.bin/nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -15,5 +15,9 @@
     "express": "~4.15.5",
     "morgan": "~1.9.0",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "nodemon": "^1.15.1"
   }
 }
