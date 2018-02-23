@@ -3,5 +3,16 @@
   "description": "A Node.js app using Express",
   "repository": "https://github.com/magnobiet/static-server",
   "keywords": ["node", "express", "heroku", "static", "server"],
-  "image": "heroku/nodejs"
+  "logo": "https://cdn.rawgit.com/magnobiet/static-server/master/node.svg",
+  "image": "heroku/nodejs",
+  "env": {
+    "PORT": {
+      "description": "Application port",
+      "value": "80"
+    },
+    "PROXY_TARGET": {
+      "description": "API Proxy path",
+      "value": "https://httpbin.org/"
+    }
+  }
 }
