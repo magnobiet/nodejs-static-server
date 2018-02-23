@@ -31,6 +31,16 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) => {
+
+	res.setHeader('Strict-Transport-Security', 'max-age=63072000');
+	res.setHeader('X-Content-Type-Options', 'nosniff');
+	res.setHeader('X-XSS-Protection', '1; mode=block');
+
+	next();
+
+});
+
 app.use('/ping', require('./routes/ping'));
 app.use('/api', require('./routes/api'));
 app.use('/*', require('./routes/index'));
